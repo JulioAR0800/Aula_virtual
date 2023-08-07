@@ -1,0 +1,567 @@
+{% extends 'base.html' %}
+
+{% block titulo %}Informacion del Usuario{% endblock %}
+
+{% block contenido %}
+
+<body class="body__wrapper">
+    <!-- pre loader area start -->
+    <div id="loading">
+        <div id="loading-center">
+            <div id="loading-center-absolute">
+                <div id="object"></div>
+            </div>
+        </div>
+    </div>
+    <!-- pre loader area end -->
+
+    <!-- Dark/Light area start -->
+    <div class="mode_switcher my_switcher">
+        <button id="light--to-dark-button" class="light align-items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="ionicon dark__mode" viewBox="0 0 512 512">
+                <path
+                    d="M160 136c0-30.62 4.51-61.61 16-88C99.57 81.27 48 159.32 48 248c0 119.29 96.71 216 216 216 88.68 0 166.73-51.57 200-128-26.39 11.49-57.38 16-88 16-119.29 0-216-96.71-216-216z"
+                    fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                    stroke-width="32" />
+            </svg>
+
+            <svg xmlns="http://www.w3.org/2000/svg" class="ionicon light__mode" viewBox="0 0 512 512">
+                <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="32"
+                    d="M256 48v48M256 416v48M403.08 108.92l-33.94 33.94M142.86 369.14l-33.94 33.94M464 256h-48M96 256H48M403.08 403.08l-33.94-33.94M142.86 142.86l-33.94-33.94" />
+                <circle cx="256" cy="256" r="80" fill="none" stroke="currentColor" stroke-linecap="round"
+                    stroke-miterlimit="10" stroke-width="32" />
+            </svg>
+
+            <span class="light__mode">Light</span>
+            <span class="dark__mode">Dark</span>
+        </button>
+    </div>
+    <!-- Dark/Light area end -->
+
+    <main class="main_wrapper">
+
+
+        <!-- topbar__section__stert -->
+
+        <!-- topbar__section__end -->
+
+
+        <!-- headar section start -->
+        <header>
+            <div class="headerarea headerarea__3 header__sticky header__area">
+                <div class="container desktop__menu__wrapper">
+                    <div class="row">
+                        <div class="col-xl-2 col-lg-2 col-md-6">
+                            <div class="headerarea__left">
+                                <div class="headerarea__left__logo">
+
+                                    <a><img src="{{url_for('static', filename='img/logo/logo_2.png') }}" alt="logo"
+                                            style="width:100px;height: 100px;"></a>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-xl-7 col-lg-7 main_menu_wrap">
+                            <div class="headerarea__main__menu">
+                                <nav>
+                                    <ul>
+                                        <li><a class="headerarea__has__dropdown" href="/index">Home</a>
+                                        </li>
+                                        <li><a class="headerarea__has__dropdown" href="/course">Cursos</a>
+                                        </li>
+                                        <li><a class="headerarea__has__dropdown" href="#">Portal Instructor</a>
+                                            <ul class="headerarea__submenu">
+                                                <li><a href="/instructor">Perfíl Instructor</a></li>
+                                                <li><a href="/biblioteca">Carga de Curso</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-lg-3 col-md-6">
+                            <div class="headerarea__right">
+                                <div class="headerarea__login">
+                                    <a href="/salir" style="color: green;">SALIR</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid mob_menu_wrapper">
+                <div class="row align-items-center">
+                    <div class="col-6">
+                        <div class="mobile-logo">
+                            <a><img src="{{url_for('static', filename='img/logo/logo_2.png') }}" alt="logo"
+                                    style="width:100px;height: 100px;"></a>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="header-right-wrap">
+                            <div class="mobile-off-canvas">
+                                <a class="mobile-aside-button" href="#"><i class="icofont-navigation-menu"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </header>
+        <!-- header section end -->
+
+        <!-- Mobile Menu Start Here -->
+        <div class="mobile-off-canvas-active">
+            <a class="mobile-aside-close"><i class="icofont  icofont-close-line"></i></a>
+            <div class="header-mobile-aside-wrap">
+                <div class="mobile-search">
+                    <form class="search-form" action="#">
+                        <input type="text" placeholder="Search entire store…">
+                        <button class="button-search"><i class="icofont icofont-search-2"></i></button>
+                    </form>
+                </div>
+                <div class="mobile-menu-wrap">
+
+                    <div class="mobile-navigation">
+                        <nav>
+                            <ul class="mobile-menu">
+                                <li class="menu-item-has-children"><a href="#">Home</a>
+                                    <ul class="dropdown">
+                                        <li><a href="#">Home Style 1</a></li>
+                                    </ul>
+                                </li>
+                                </li>
+                                <li class="menu-item-has-children"><a href="#">blog</a>
+                                    <ul class="dropdown">
+                                        <li><a href="#">Blog</a></li>
+                                    </ul>
+                                </li>
+                                <li class="menu-item-has-children "><a href="#">Course</a>
+                                    <ul class="dropdown">
+                                        <li><a href="#">Course</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </nav>
+
+                    </div>
+
+                </div>
+                <div class="mobile-curr-lang-wrap">
+                    <div class="single-mobile-curr-lang">
+                        <a class="mobile-language-active" href="#">Language <i class="icofont-thin-down"></i></a>
+                        <div class="lang-curr-dropdown lang-dropdown-active">
+                            <ul>
+                                <li><a href="#">English (US)</a></li>
+                                <li><a href="#">English (UK)</a></li>
+                                <li><a href="#">Spanish</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="single-mobile-curr-lang">
+                        <a class="mobile-account-active" href="#">My Account <i class="icofont-thin-down"></i></a>
+                        <div class="lang-curr-dropdown account-dropdown-active">
+                            <ul>
+                                <li><a href="#">Login</a></li>
+                                <li><a href="#">Creat Account</a></li>
+                                <li><a href="#">My Account</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="mobile-social-wrap">
+                    <a class="facebook" href="#"><i class="icofont icofont-facebook"></i></a>
+                    <a class="twitter" href="#"><i class="icofont icofont-twitter"></i></a>
+                    <a class="pinterest" href="#"><i class="icofont icofont-pinterest"></i></a>
+                    <a class="instagram" href="#"><i class="icofont icofont-instagram"></i></a>
+                    <a class="google" href="#"><i class="icofont icofont-youtube-play"></i></a>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu end Here -->
+
+        <!-- theme fixed shadow -->
+        <div>
+            <div class="theme__shadow__circle"></div>
+            <div class="theme__shadow__circle shadow__right"></div>
+        </div>
+        <!-- theme fixed shadow -->
+        <!-- breadcrumbarea__section__start -->
+
+        <div class="breadcrumbarea">
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="breadcrumb__content__wraper" data-aos="fade-up">
+                            <div class="breadcrumb__title">
+                                <h2 class="heading">Pagina Instructor</h2>
+                            </div>
+                            <div class="breadcrumb__inner">
+                                <ul>
+                                    <li><a href="#">Home</a></li>
+                                    <li>Datos Instructor</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="shape__icon__2">
+                <img class=" shape__icon__img shape__icon__img__1"
+                    src="{{url_for('static', filename='img/herobanner/herobanner__1.png') }}" alt="photo">
+                <img class=" shape__icon__img shape__icon__img__2"
+                    src="{{url_for('static', filename='img/herobanner/herobanner__2.png') }}" alt="photo">
+                <img class=" shape__icon__img shape__icon__img__3"
+                    src="{{url_for('static', filename='img/herobanner/herobanner__3.png') }}" alt="photo">
+                <img class=" shape__icon__img shape__icon__img__4"
+                    src="{{url_for('static', filename='img/herobanner/herobanner__5.png') }}" alt="photo">
+            </div>
+
+        </div>
+        <!-- breadcrumbarea__section__end-->
+
+
+        <!-- intructor__teacher__start -->
+        <div class="instructor sp_top_100 sp_bottom_100">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12">
+                        <div class="instructor__sidebar" data-tilt>
+                            <div class="instructor__sidebar__img" data-aos="fade-up">
+                                <img src="{{url_for('static', filename='img/team/team__4.png') }}" alt="team">
+                                <div class="instructor__sidebar__small__img">
+                                    <img src="{{url_for('static', filename='img/about/about_4.png') }}" alt="img">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12 col-12">
+                        <div class="instructor__inner__wraper">
+                            <div class="instructor__list">
+                                <ul>
+                                    <li data-aos="fade-up">
+                                        <div class="instructor__heading">
+                                            <h3>Mauricio Pardo</h3>
+                                            <p>Profesor de Desarrollo "FullStack"</p>
+                                        </div>
+                                    </li>
+                                    <li data-aos="fade-up">
+                                        <div class="instructor__review">
+                                            <span>Review:</span>
+                                            <div class="instructor__star">
+                                                <i class="icofont-star"></i>
+                                                <i class="icofont-star"></i>
+                                                <i class="icofont-star"></i>
+                                                <i class="icofont-star"></i>
+                                                <i class="icofont-star"></i>
+                                                <span>(44)</span>
+                                            </div>
+                                        </div>
+                                    </li>
+
+                                    <li data-aos="fade-up">
+                                        <div class="instructor__follow">
+                                            <span>Follow Us:</span>
+                                            <div class="instructor__icon">
+                                                <ul>
+                                                    <li>
+                                                        <a href="#"><i class="icofont-facebook"></i></a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#"><i class="icofont-twitter"></i></a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#"><i class="icofont-instagram"></i></a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#"><i class="icofont-youtube-play"></i></a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </li>
+
+                                    <li data-aos="fade-up">
+
+
+                                        <div class="instructor__button">
+                                            <a class="default__button" href="#">Follow</a>
+                                        </div>
+
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="instructor__content__wraper" data-aos="fade-up">
+                                <h6>Biografia</h6>
+                                <p>Soy tu instructor en esta plataforma de clases con videos. Estoy aquí para guiarte en
+                                    tu viaje de aprendizaje y ayudarte a alcanzar tus metas educativas. A lo largo de
+                                    los videos, te proporcionaré contenido de calidad, te responderé preguntas y te
+                                    ofreceré mi apoyo. ¡Empecemos este emocionante viaje juntos/as!</p>
+                            </div>
+                            <div class="online__course__wrap">
+                                <div class="instructor__heading__2" data-aos="fade-up">
+                                    <h3>Online Course</h3>
+                                </div>
+
+                                <div class="row instructor__slider__active row__custom__class" data-aos="fade-up">
+                                    <div class="col-xl-6 column__custom__class">
+                                        <div class="gridarea__wraper">
+                                            <div class="gridarea__img">
+                                                <a href="course"><img
+                                                        src="{{url_for('static', filename='img/grid/grid_1.png') }}"
+                                                        alt="grid"></a>
+                                                <div class="gridarea__small__button">
+                                                    <div class="grid__badge">Data &amp; Tech</div>
+                                                </div>
+                                                <div class="gridarea__small__icon">
+                                                    <a href="https://www.youtube.com/watch?v=1I6IiRVYHEo"><i
+                                                            class="icofont-heart-alt"></i></a>
+                                                </div>
+
+                                            </div>
+                                            <div class="gridarea__content">
+                                                <div class="gridarea__list">
+                                                    <ul>
+                                                        <li>
+                                                            <i class="icofont-book-alt"></i> 23 Lesson
+                                                        </li>
+                                                        <li>
+                                                            <i class="icofont-clock-time"></i> 1 hr 30 min
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="gridarea__heading">
+                                                    <h3><a href="course">Foundation course to under stand
+                                                            about softwere</a></h3>
+                                                </div>
+                                                <div class="gridarea__price">
+
+                                                </div>
+                                                <div class="gridarea__bottom">
+
+                                                    <a href="instructor">
+                                                        <div class="gridarea__small__img">
+                                                            <img src="{{url_for('static', filename='img/grid/grid_small_1.jpg') }}"
+                                                                alt="grid">
+                                                            <div class="gridarea__small__content">
+                                                                <h6>Mauricio Pardo</h6>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+
+                                                    <div class="gridarea__star">
+                                                        <i class="icofont-star"></i>
+                                                        <i class="icofont-star"></i>
+                                                        <i class="icofont-star"></i>
+                                                        <i class="icofont-star"></i>
+                                                        <i class="icofont-star"></i>
+                                                        <span>(44)</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-6 column__custom__class">
+                                        <div class="gridarea__wraper">
+                                            <div class="gridarea__img">
+                                                <img src="{{url_for('static', filename='img/grid/grid_1.png') }}"
+                                                    alt="grid">
+                                                <div class="gridarea__small__button">
+                                                    <div class="grid__badge blue__color">Mechanical</div>
+                                                </div>
+                                                <div class="gridarea__small__icon">
+                                                    <a href="#"><i class="icofont-heart-alt"></i></a>
+                                                </div>
+
+                                            </div>
+                                            <div class="gridarea__content">
+                                                <div class="gridarea__list">
+                                                    <ul>
+                                                        <li>
+                                                            <i class="icofont-book-alt"></i> 29 Lesson
+                                                        </li>
+                                                        <li>
+                                                            <i class="icofont-clock-time"></i> 2 hr 10 min
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="gridarea__heading">
+                                                    <h3><a href="#">Nidnies course to under stand
+                                                            about softwere</a></h3>
+                                                </div>
+                                                <div class="gridarea__price green__color">
+
+
+                                                </div>
+                                                <div class="gridarea__bottom">
+                                                    <a href="instructor">
+                                                        <div class="gridarea__small__img">
+                                                            <img src="{{url_for('static', filename='img/grid/grid_small_2.jpg') }}"
+                                                                alt="grid">
+                                                            <div class="gridarea__small__content">
+                                                                <h6>Rinis Jhon</h6>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                    <div class="gridarea__star">
+                                                        <i class="icofont-star"></i>
+                                                        <i class="icofont-star"></i>
+                                                        <i class="icofont-star"></i>
+                                                        <i class="icofont-star"></i>
+                                                        <i class="icofont-star"></i>
+                                                        <span>(44)</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-6 column__custom__class">
+                                        <div class="gridarea__wraper">
+                                            <div class="gridarea__img">
+                                                <a href="course"><img
+                                                        src="{{url_for('static', filename='img/grid/grid_1.png') }}"
+                                                        alt="grid"></a>
+                                                <div class="gridarea__small__button">
+                                                    <div class="grid__badge">Data &amp; Tech</div>
+                                                </div>
+                                                <div class="gridarea__small__icon">
+                                                    <a href="#"><i class="icofont-heart-alt"></i></a>
+                                                </div>
+
+                                            </div>
+                                            <div class="gridarea__content">
+                                                <div class="gridarea__list">
+                                                    <ul>
+                                                        <li>
+                                                            <i class="icofont-book-alt"></i> 23 Lesson
+                                                        </li>
+                                                        <li>
+                                                            <i class="icofont-clock-time"></i> 1 hr 30 min
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="gridarea__heading">
+                                                    <h3><a href="course.html">Foundation course to under stand
+                                                            about softwere</a></h3>
+                                                </div>
+                                                <div class="gridarea__price">
+
+                                                </div>
+                                                <div class="gridarea__bottom">
+
+                                                    <a href="instructor.html">
+                                                        <div class="gridarea__small__img">
+                                                            <img src="{{url_for('static', filename='img/grid/grid_small_1.jpg') }}"
+                                                                alt="grid">
+                                                            <!--FOTO DEL CURSO O VIDEO -->
+                                                            <div class="gridarea__small__content">
+                                                                <h6>Micle Jhon</h6>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                    <div class="gridarea__star">
+                                                        <i class="icofont-star"></i>
+                                                        <i class="icofont-star"></i>
+                                                        <i class="icofont-star"></i>
+                                                        <i class="icofont-star"></i>
+                                                        <i class="icofont-star"></i>
+                                                        <span>(44)</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-6 column__custom__class">
+                                        <div class="gridarea__wraper">
+                                            <div class="gridarea__img">
+                                                <img src="{{url_for('static', filename='img/grid/grid_2.png') }}"
+                                                    alt="grid">
+                                                <!--FOTO DEL CURSO O VIDEO -->
+                                                <div class="gridarea__small__button">
+                                                    <div class="grid__badge blue__color">Mechanical</div>
+                                                </div>
+                                                <div class="gridarea__small__icon">
+                                                    <a href="#"><i class="icofont-heart-alt"></i></a>
+                                                </div>
+
+                                            </div>
+                                            <div class="gridarea__content">
+                                                <div class="gridarea__list">
+                                                    <ul>
+                                                        <li>
+                                                            <i class="icofont-book-alt"></i> 29 Lesson
+                                                        </li>
+                                                        <li>
+                                                            <i class="icofont-clock-time"></i> 2 hr 10 min
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="gridarea__heading">
+                                                    <h3><a href="#">Nidnies course to under stand
+                                                            about softwere</a></h3>
+                                                </div>
+                                                <div class="gridarea__price green__color">
+
+
+                                                </div>
+                                                <div class="gridarea__bottom">
+                                                    <a href="instructor.html">
+                                                        <div class="gridarea__small__img">
+                                                            <img src="{{url_for('static', filename='img/grid/grid_small_2.jpg') }}"
+                                                                alt="grid">
+                                                            <div class="gridarea__small__content">
+                                                                <h6>Rinis Jhon</h6>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                    <div class="gridarea__star">
+                                                        <i class="icofont-star"></i>
+                                                        <i class="icofont-star"></i>
+                                                        <i class="icofont-star"></i>
+                                                        <i class="icofont-star"></i>
+                                                        <i class="icofont-star"></i>
+                                                        <span>(44)</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!-- intructor__teacher__end -->
+        <!-- footer__section__start -->
+        <div class="footerarea">
+            <div class="container">
+                <div class="footerarea__copyright__wrapper">
+                    <div class="row">
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12" data-aos="fade-up">
+                            <div class="footerarea__copyright__content">
+                                <p>© 2023 Powered by <a href="#">LureDev</a>. All Rights Reserved.</p>
+                            </div>
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12" data-aos="fade-up">
+                            <div class="footerarea__copyright__list">
+                                <ul>
+                                    <li><a href="#">Terms of Use</a></li>
+                                    <li><a href="#">Privacy Policy</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- footer__section__end -->
+    </main>
+</body>
+{% endblock %}
